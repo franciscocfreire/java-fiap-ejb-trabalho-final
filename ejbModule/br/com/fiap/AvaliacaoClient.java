@@ -1,5 +1,7 @@
 package br.com.fiap;
 
+import java.util.List;
+
 import javax.naming.InitialContext;
 
 public class AvaliacaoClient {
@@ -7,6 +9,10 @@ public class AvaliacaoClient {
 		InitialContext context = new InitialContext();
 		Avaliacao avaliacao = (Avaliacao) context.lookup("AvaliacaoBean/remote");
 		
-		avaliacao.obterQuestoes(1);
+		List<String> te = (List<String>)avaliacao.obterQuestoes(1);
+		
+		for(String s : te) {
+			System.out.println(s);
+		}
 	}
 }
